@@ -6,7 +6,12 @@
  * @returns {number}
  */
 function calculateSubtotal(items) {
-  return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return items.reduce((sum, item) => {
+    const price = Number(item.price);
+    const quantity = Number(item.quantity);
+    const lineTotal = Number.isFinite(price) && Number.isFinite(quantity) ? price * quantity : 0;
+    return sum + lineTotal;
+  }, 0);
 }
 
 /**
