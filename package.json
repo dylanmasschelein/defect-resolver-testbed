@@ -1,0 +1,12 @@
+{
+  "name": "defect-resolver-testbed",
+  "version": "1.0.0",
+  "description": "Sandbox repo for exercising the Linear AI Defect Resolver agent. Contains a small pricing library with a deliberately planted defect.",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
