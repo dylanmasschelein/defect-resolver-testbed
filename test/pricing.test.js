@@ -26,6 +26,14 @@ describe('applyDiscount', () => {
   test('never returns a negative total for an oversized fixed discount', () => {
     expect(applyDiscount(20, { type: 'fixed', value: 50 })).toBe(0);
   });
+
+  test('subtracts a percentage discount as a percent of the subtotal', () => {
+    expect(applyDiscount(200, { type: 'percent', value: 10 })).toBe(180);
+  });
+
+  test('clamps a percent discount over 100% to 0', () => {
+    expect(applyDiscount(200, { type: 'percent', value: 150 })).toBe(0);
+  });
 });
 
 describe('calculateTotal', () => {

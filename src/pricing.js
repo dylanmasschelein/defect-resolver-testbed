@@ -27,7 +27,7 @@ function applyDiscount(subtotal, discount) {
   }
 
   if (discount.type === 'percent') {
-    return Math.max(0, subtotal - discount.value);
+    return Math.max(0, subtotal - subtotal * (discount.value / 100));
   }
 
   return subtotal;
