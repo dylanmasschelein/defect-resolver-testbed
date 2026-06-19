@@ -6,7 +6,8 @@
  * @returns {number}
  */
 function calculateSubtotal(items) {
-  return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return Math.round(subtotal * 100) / 100;
 }
 
 /**

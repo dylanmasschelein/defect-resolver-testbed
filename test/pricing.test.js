@@ -12,6 +12,11 @@ describe('calculateSubtotal', () => {
   test('returns 0 for an empty cart', () => {
     expect(calculateSubtotal([])).toBe(0);
   });
+
+  test('rounds a fractional-price subtotal to cents (no floating-point drift)', () => {
+    // 0.1 * 3 === 0.30000000000000004 in raw IEEE-754; it must round to 0.3.
+    expect(calculateSubtotal([{ price: 0.1, quantity: 3 }])).toBe(0.3);
+  });
 });
 
 describe('applyDiscount', () => {
