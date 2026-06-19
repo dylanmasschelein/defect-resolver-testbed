@@ -12,6 +12,18 @@ describe('calculateSubtotal', () => {
   test('returns 0 for an empty cart', () => {
     expect(calculateSubtotal([])).toBe(0);
   });
+
+  test('treats a null cart as empty and returns 0 (no throw)', () => {
+    expect(calculateSubtotal(null)).toBe(0);
+  });
+
+  test('treats an undefined cart as empty and returns 0 (no throw)', () => {
+    expect(calculateSubtotal(undefined)).toBe(0);
+  });
+
+  test('happy path is unchanged for a populated cart', () => {
+    expect(calculateSubtotal([{ price: 10, quantity: 2 }])).toBe(20);
+  });
 });
 
 describe('applyDiscount', () => {
