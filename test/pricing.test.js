@@ -26,6 +26,10 @@ describe('applyDiscount', () => {
   test('never returns a negative total for an oversized fixed discount', () => {
     expect(applyDiscount(20, { type: 'fixed', value: 50 })).toBe(0);
   });
+
+  test('treats a fixed discount with a missing value as no reduction instead of NaN', () => {
+    expect(applyDiscount(100, { type: 'fixed' })).toBe(100);
+  });
 });
 
 describe('calculateTotal', () => {
