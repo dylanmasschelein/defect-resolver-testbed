@@ -6,7 +6,8 @@
  * @returns {number}
  */
 function calculateSubtotal(items) {
-  return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const lineItems = Array.isArray(items) ? items : [];
+  return lineItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
 /**
