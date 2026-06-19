@@ -27,7 +27,8 @@ function applyDiscount(subtotal, discount) {
   }
 
   if (discount.type === 'percent') {
-    return Math.max(0, subtotal - discount.value);
+    const value = Number.isFinite(discount.value) ? discount.value : 0;
+    return Math.max(0, subtotal - value);
   }
 
   return subtotal;
